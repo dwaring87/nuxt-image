@@ -18,6 +18,20 @@ export default defineNuxtConfig({
 })
 ```
 
+Authentication to the Directus instance can be made using a [static access token](https://docs.directus.io/reference/authentication.html#access-tokens) that can be included in the provider configuration.
+
+```ts [nuxt.config.ts]
+export default defineNuxtConfig({
+  image: {
+    directus: {
+      baseURL: 'http://localhost:8055/assets/',
+      // A user-specific static token that is generated in the Directus user settings
+      token: '0123456789abcdef'
+    }
+  }
+})
+```
+
 You can easily override default options:
 
 ```ts [nuxt.config.ts]
