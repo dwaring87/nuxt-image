@@ -6,7 +6,8 @@ export const operationsGenerator = createOperationsGenerator({
   joinWith: '&'
 })
 
-export const getImage: ProviderGetImage = (src, { modifiers = {}, baseURL } = {}) => {
+export const getImage: ProviderGetImage = (src, { modifiers = {}, baseURL, token } = {}) => {
+  if ( token ) modifiers.access_token = token
   // Separating the transforms from the rest of the modifiers
   let transforms = modifiers.transforms
   if (transforms && Array.isArray(transforms) && transforms.length > 0) {
